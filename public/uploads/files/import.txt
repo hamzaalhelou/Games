@@ -1,0 +1,26 @@
+cls => شاشة جديده 
+winget upgrade --all =>تحديث كافة البرنامج
+whereAlpha=>للاحرف
+whereNumber=>للارقام
+whereAlphaNumeric=>احرف وارقام بس بدون رموز
+kaggle
+google cola
+chat openai
+fake filler
+preg-match => نمط بستخدمه
+laravel ajax
+Axios
+composer require barryvdh/laravel-debugbar --dev =>يفضل تنزيل هاي المكتبة ولما ارفع الموقع اونلاين بشيلها 
+https://github.com/rawilk/laravel-settings/tree/main ->setting
+///////////////////////////////////////////////////////////////////////////////////////////////
+اول ما اعمل تشغيل للداتا بيز migrate بيجيني ارور وهاد حل
+
+use Illuminate\Support\Facades\Schema;
+ 
+/**
+ * Bootstrap any application services.
+ */
+public function boot(): void
+{
+    Schema::defaultStringLength(191);
+}

@@ -1,0 +1,8 @@
+admin , user , 
+Breeze
+************************
+ $table->id();
+            $table->date('date');
+            $table->string('writer');
+            $table->string('title');
+            $table->text('content');

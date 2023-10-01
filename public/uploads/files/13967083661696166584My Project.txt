@@ -1,0 +1,62 @@
+** users
+- id
+- name
+- email
+- password
+- type "admin, student"
+
+** sliders
+- id
+- title
+- content
+- image
+- btn1_link
+
+** features
+- id
+- icon
+- title
+- content
+
+** courses
+- id
+- date
+- title
+- image
+- category
+- field
+- price
+- duration=>مدة
+- content
+- iteacher_id
+
+
+** teachers
+- id
+- name
+- image
+- position
+- fb_link
+- tw_link
+- gm_link
+- in_link
+- ln_link
+
+** events=>الاحداث
+- id
+- date
+- image
+- address
+- content
+
+**Journalists=>صحافي
+- id 
+- date 
+- writer
+- title
+- content
+
+**course-user
+- course_id
+- user_id
+

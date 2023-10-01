@@ -1,0 +1,51 @@
+** users
+- id
+- name
+- email
+- password
+- type "admin, user"
+
+** sliders
+- id
+- title
+- subtitle
+- content
+- image
+- btn1_link
+- btn2_link
+
+** categories
+- id
+- item
+- image1
+- image2
+- image3
+- image4
+
+**offers
+- id
+- title
+- subtitle
+- image
+
+
+** brands
+- id
+- item
+- price
+- image
+
+** testimonials
+- id
+- name
+- image
+- position
+- content
+
+** gallery
+- id
+- image
+
+course_user
+- course_id
+- user_id
