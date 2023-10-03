@@ -69,7 +69,7 @@
             </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.account') }}">
+                <a class="nav-link" href="{{ route('admin.show_account') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>My Account</span></a>
             </li>
@@ -261,7 +261,9 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('adminassets/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <script src="{{ asset('adminassets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Core plugin JavaScript-->
@@ -270,6 +272,7 @@
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('adminassets/js/sb-admin-2.min.js') }}"></script>
 @yield('scripts')
+@yield('scripts1')
 </body>
 
 </html>

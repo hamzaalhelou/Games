@@ -14,9 +14,9 @@ class ReviewerController extends Controller
      */
     public function index()
     {
-
+        $additions = File::latest('id')->paginate(6);
         $reviewers = Reviewer::latest('id')->paginate(6);
-        return view('admin.reviewer.index',compact('reviewers'));
+        return view('admin.reviewer.index',compact('reviewers','additions'));
     }
 
     /**
@@ -24,7 +24,8 @@ class ReviewerController extends Controller
      */
     public function create()
     {
-        //
+        $additions = File::latest('id')->get();
+        return view('admin.reviewer.create',compact('additions'));
     }
 
     /**
@@ -32,7 +33,22 @@ class ReviewerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'reviewed_by' => 'required',
+            'your_review' => 'required',
+
+        ]);
+
+
+        Reviewer::create([
+            'reviewed_by' => $request->reviewed_by,
+            'your_review' => $request->your_review,
+            'type' => $request->input('type'),
+        ]);
+        return redirect()
+        ->route('admin.reviewers.index')
+        ->with('msg', 'Good job! ')
+        ->with('type', 'success');
     }
 
     /**
@@ -40,7 +56,8 @@ class ReviewerController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $addition = File::findOrFail($id);
+        return view('admin.reviewer.create',compact('addition'));
     }
 
     /**
@@ -66,4 +83,5 @@ class ReviewerController extends Controller
     {
         //
     }
+
 }

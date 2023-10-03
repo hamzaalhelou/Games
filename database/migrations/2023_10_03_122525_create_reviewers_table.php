@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('reviewed_by');
             $table->text('your_review');
+            $table->enum('type',['Yes','No','Invalid demo'])->default('No');
             $table->timestamps();
         });
     }

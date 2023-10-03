@@ -4,50 +4,40 @@
 
 @section('content')
 <!-- Page Heading -->
-<div class="card mb-3 m-3" >
-    <div class="card-body">
-<div class="d-flex justify-content-between align-items-center  mb-4">
-    <h1 class="h3 text-gray-800 mb-0">Add New</h1>
-    <a class="btn btn-primary" href="{{ route('admin.additions.index') }}">All My Demos</a>
-</div>
-</div>
-<form action="{{ route('admin.additions.store') }}" method="POST" enctype="multipart/form-data">
-    @csrf
-    <div class="card-body border-top">
-        <div class="row align-items-center mb-3 m-8">
-            <label class="col-md-2 mb-0 text-gray-600 required"><b>Demo</b></label>
-            <div class="col-md-6 ms-20" >
-                <input type="file" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0 @error('file') is-invalid @enderror" name="file">
-                @error('file')
-                <small class="invalid-feedback">{{ $message }}</small>
-                @enderror
-            </div>
-            </div>
-            <div class="row align-items-center mb-3 m-8">
-                <label class="col-md-2 mb-0 text-gray-600 required"><b>Game Rank</b></label>
-                <div class="col-md-6 ms-20" >
-                    <input type="text" placeholder="e.g. Gold Nova II, or FACEIT Level 5"class="form-control form-control-lg form-control-solid mb-3 mb-lg-0 @error('game_rank') is-invalid @enderror" name="game_rank">
-                    @error('game_rank')
-                    <small class="invalid-feedback">{{ $message }}</small>
-                    @enderror
-                </div>
-                </div>
-                <div class="row align-items-center mb-3 m-8">
-                    <label class="col-md-2 mb-0 text-gray-600 required"><b>Comments</b></label>
-                    <div class="col-md-6 ms-20" >
-                        <textarea placeholder="Anything else we should know?" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0 @error('comments') is-invalid @enderror" name="comments" rows="5"></textarea>
-                        @error('comments')
-                        <small class="invalid-feedback">{{ $message }}</small>
-                        @enderror
-                    </div>
-                    </div>
-                    <div class="card-footer d-flex justify-content-end py-6 px-9 m-5">
-                        <button type="button" onclick="history.back()" class="btn btn-secondary m-1"> <i class="fas fa-ban"></i>Cancel</button>
-                        <button class="btn btn-success ms- m-1"> <i class="fas fa-save"></i>Save</button>
-                    </div>
-                </div>
-</form>
-</div>
+
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Download URL of the file:</label>
+            <a href="{{ asset('uploads/files/'.$addition->file) }}" >{{ $addition->file }}</a>
+          </div>
+        <div class="form-group">
+          <label for="recipient-name" class="col-form-label">Reviewed by:</label>
+          <input type="text" class="form-control" id="recipient-name">
+        </div>
+        <div class="form-group">
+          <label for="message-text" class="col-form-label">review:</label>
+          <textarea class="form-control" id="message-text"></textarea>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer justify-content-start">
+      <button type="button" id="invalidDemoButton" class="btn btn-danger" data-dismiss="modal">Invalid Demo</button>
+      <button type="button" id="completeReviewButton" class="btn btn-primary" data-dismiss="modal">Complete review</button>
+      <button type="button" onclick="history.back()" class="btn btn-secondary"> <i class="fas fa-ban"></i>Cancel</button>
+    </div>
+
+  </div>
+  @section('scripts')
+  <script>
+    $(document).ready(function() {
+        $("#signupModal").modal('show');
+    });
+</script>
+  @endsection
 @stop
 
 

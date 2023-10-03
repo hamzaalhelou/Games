@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdditionController extends Controller
 {
@@ -33,8 +34,10 @@ class AdditionController extends Controller
         $request->validate([
             'file' => 'required|mimetypes:application/octet-stream',
             'game_rank' => 'required',
-            'comments' => 'required'
+            'comments' => 'required',
+            // 'user_id' => 'required'
         ]);
+        $user = Auth::user();
 
         $addfile = $request->file('file')->getClientOriginalName();
         $request->file('file')->move(public_path('uploads/files'), $addfile);
@@ -44,6 +47,7 @@ class AdditionController extends Controller
             'file' => $addfile,
             'comments' => $request->comments,
             'game_rank' => $request->game_rank,
+            'user_id' => $user->id,
         ]);
         return redirect()
         ->route('admin.additions.index')
@@ -78,7 +82,8 @@ class AdditionController extends Controller
         $request->validate([
             'file' => 'required|mimes:dem',
             'game_rank' => 'required',
-            'comments' => 'required'
+            'comments' => 'required',
+            'user_id' => 'required'
         ]);
 
         $addition = File::findOrFail($id);
@@ -102,6 +107,7 @@ class AdditionController extends Controller
             'file' => $addfile,
             'comments' => $request->comments,
             'game_rank' => $request->game_rank,
+            'user_id' => $request->user_id,
         ]);
 
 

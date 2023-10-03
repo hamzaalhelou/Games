@@ -18,6 +18,10 @@ class AdminController extends Controller
     {
         return view('admin.account');
     }
+    public function show_account()
+    {
+        return view('admin.show_account');
+    }
     public function update(Request $request)
     {
     $user = Auth::user();

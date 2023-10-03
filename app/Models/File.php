@@ -9,9 +9,13 @@ class File extends Model
 {
     protected $guarded = [];
     use HasFactory;
-    public function reviewer()
+    public function reviewers()
     {
         return $this->belongsTo(Reviewer::class)->withDefault();
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class)->withDefault();
     }
 
 }

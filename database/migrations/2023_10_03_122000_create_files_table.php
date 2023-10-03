@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('file');
             $table->string('game_rank');
             $table->text('comments');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }

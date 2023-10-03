@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\UserController;
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function(){
     Route::get('/',[AdminController::class,'index'])->name('index');
+    Route::get('/show_account', [AdminController::class, 'show_account'])->name('show_account');
     Route::get('/account', [AdminController::class, 'account'])->name('account');
     Route::put('/account/update',[AdminController::class,'update'])->name('account.update')->middleware('auth');
     Route::resource('additions', AdditionController::class);
@@ -22,4 +23,5 @@ Route::get('/', [SiteController::class, 'index'])->name('site.home');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('');
+Route::get('/reviewers/test/{id}', [ReviewerController::class, 'test'])->name('test');

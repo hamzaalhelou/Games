@@ -33,15 +33,6 @@
                     @enderror
                 </div>
                 </div>
-                <div class="row align-items-center mb-3 m-8">
-                    <label class="col-md-2 mb-0 text-gray-600 required"><b>Password</b></label>
-                    <div class="col-md-6 ms-20" >
-                        <input type="password" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0 @error('password') is-invalid @enderror" value="{{ Auth::user()->password }}" name="password" autocomplete="current-password">
-                        @error('password')
-                        <small class="invalid-feedback">{{ $message }}</small>
-                        @enderror
-                    </div>
-                    </div>
                     <div class="card-footer d-flex justify-content-end py-6 px-9 m-5">
                         <button type="button" onclick="history.back()" class="btn btn-secondary m-1"> <i class="fas fa-ban"></i>Cancel</button>
                         <button class="btn btn-success ms- m-1"> <i class="fas fa-save"></i>Save</button>

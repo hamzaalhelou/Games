@@ -24,10 +24,14 @@
                     @foreach ($additions as $addition)
                     <tr>
                         <td>{{ $addition->created_at }}</td>
-                        <td><a href="{{ asset('uploads/files/'.$addition->file) }}" download >{{ $addition->file }}</a></td>
+                        <td>{{ $addition->file }}</td>
                         <td>{{ $addition->game_rank }}</td>
                         <td>{{ $addition->comments }}</td>
-                        <td> Yes </td>
+                        <td class="text-end">
+                            <div class="badge badge-success">
+                                </div> Yes </td>
+
+
                     </tr>
                 @endforeach
                 </thead>

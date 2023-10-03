@@ -16,14 +16,12 @@
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Password</th>
                         <th>Actions</th>
                     </tr>
                     @foreach ($Users as $User)
                     <tr>
                         <td>{{ $User->name }}</td>
                         <td>{{ $User->email }}</td>
-                        <td>{{ $User->password }}</td>
                         <td>
                             <a class="btn btn-primary btn-sm" href="{{ route('admin.users.edit', $User->id) }}"><i class="fas fa-edit"></i></a>
                         </td>

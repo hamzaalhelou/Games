@@ -19,18 +19,13 @@
                         <th>Comments</th>
                         <th>Reviewed</th>
                     </tr>
-                    @foreach ($reviewers as $reviewer)
+                    @foreach ($additions as $addition)
                     <tr>
-                        <td><a href="{{ asset('uploads/files/'.$reviewer->file) }}" >{{ $reviewer->file->file }}</a></td>
-                        <td>{{ $reviewer->files->game_rank }}</td>
-                        <td>{{ $reviewer->files->comments }}</td>
+                        <td>{{ $addition->file }}</td>
+                        <td>{{ $addition->game_rank }}</td>
+                        <td>{{ $addition->comments }}</td>
                         <td>
-                            <a class="btn btn-primary btn-sm" href="{{ route('admin.reviewers.edit', $reviewer->id) }}"><i class="fas fa-edit"></i></a>
-                            <form class="d-inline" method="POST" action="{{ route('admin.reviewers.destroy', $reviewer->id) }}">
-                                @csrf
-                                @method('delete')
-                                <button onclick="return confirm('Are you sure?!')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                            </form>
+                            <a class="btn btn-primary btn-sm" href="{{ route('admin.reviewers.show',$addition->id) }}">Reviewed</a>
                         </td>
                     </tr>
                 @endforeach
