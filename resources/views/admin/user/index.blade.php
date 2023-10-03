@@ -7,27 +7,26 @@
 <div class="card shadow mb-4">
     <div class="card-body">
     <div class="d-flex justify-content-between align-items-center">
-        <h1 class="h3 mb-0 m-4">My Demos</h1>
-        <a class="btn btn-primary m-4" href="{{ route('admin.additions.create') }}">Add New </a>
+        <h1 class="h3 mb-0 m-4">All Users</h1>
     </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Date</th>
-                        <th>Demo</th>
-                        <th>Game Rank</th>
-                        <th>Comments</th>
-                        <th>Reviewed</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Actions</th>
                     </tr>
-                    @foreach ($additions as $addition)
+                    @foreach ($Users as $User)
                     <tr>
-                        <td>{{ $addition->created_at }}</td>
-                        <td><a href="{{ asset('uploads/files/'.$addition->file) }}" download >{{ $addition->file }}</a></td>
-                        <td>{{ $addition->game_rank }}</td>
-                        <td>{{ $addition->comments }}</td>
-                        <td> Yes </td>
+                        <td>{{ $User->name }}</td>
+                        <td>{{ $User->email }}</td>
+                        <td>{{ $User->password }}</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" href="{{ route('admin.users.edit', $User->id) }}"><i class="fas fa-edit"></i></a>
+                        </td>
                     </tr>
                 @endforeach
                 </thead>
@@ -36,7 +35,7 @@
     </div>
 </div>
 </div>
-{{ $additions->links() }}
+{{ $Users->links() }}
 @section('scripts')
 <script>
   @if (session('msg'))

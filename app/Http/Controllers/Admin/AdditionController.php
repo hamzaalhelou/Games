@@ -31,7 +31,7 @@ class AdditionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'file' => 'required',
+            'file' => 'required|mimetypes:application/octet-stream',
             'game_rank' => 'required',
             'comments' => 'required'
         ]);

@@ -7,36 +7,37 @@
 <div class="card mb-3 m-3" >
     <div class="card-body">
 <div class="d-flex justify-content-between align-items-center  mb-4">
-    <h1 class="h3 text-gray-800 mb-0">Add New</h1>
-    <a class="btn btn-primary" href="{{ route('admin.additions.index') }}">All My Demos</a>
+    <h1 class="h3 text-gray-800 mb-0">Edite User</h1>
+    <a class="btn btn-primary" href="{{ route('admin.users.index') }}">All Users</a>
 </div>
 </div>
-<form action="{{ route('admin.additions.store') }}" method="POST" enctype="multipart/form-data">
-    @csrf
+<form action="{{ route('admin.users.update',$user->id) }}" method="POST" enctype="multipart/form-data">
+@csrf
+@method('PUT')
     <div class="card-body border-top">
         <div class="row align-items-center mb-3 m-8">
-            <label class="col-md-2 mb-0 text-gray-600 required"><b>Demo</b></label>
+            <label class="col-md-2 mb-0 text-gray-600 required"><b>Name</b></label>
             <div class="col-md-6 ms-20" >
-                <input type="file" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0 @error('file') is-invalid @enderror" name="file" accept=".dem">
-                @error('file')
+                <input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0 @error('name') is-invalid @enderror" value="{{ Auth::user()->name }}" name="name">
+                @error('name')
                 <small class="invalid-feedback">{{ $message }}</small>
                 @enderror
             </div>
             </div>
             <div class="row align-items-center mb-3 m-8">
-                <label class="col-md-2 mb-0 text-gray-600 required"><b>Game Rank</b></label>
+                <label class="col-md-2 mb-0 text-gray-600 required"><b>Email</b></label>
                 <div class="col-md-6 ms-20" >
-                    <input type="text" placeholder="e.g. Gold Nova II, or FACEIT Level 5"class="form-control form-control-lg form-control-solid mb-3 mb-lg-0 @error('game_rank') is-invalid @enderror" name="game_rank">
-                    @error('game_rank')
+                    <input type="email" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0 @error('email') is-invalid @enderror" value="{{ Auth::user()->email }}" name="email">
+                    @error('email')
                     <small class="invalid-feedback">{{ $message }}</small>
                     @enderror
                 </div>
                 </div>
                 <div class="row align-items-center mb-3 m-8">
-                    <label class="col-md-2 mb-0 text-gray-600 required"><b>Comments</b></label>
+                    <label class="col-md-2 mb-0 text-gray-600 required"><b>Password</b></label>
                     <div class="col-md-6 ms-20" >
-                        <textarea placeholder="Anything else we should know?" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0 @error('comments') is-invalid @enderror" name="comments" rows="5"></textarea>
-                        @error('comments')
+                        <input type="password" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0 @error('password') is-invalid @enderror" value="{{ Auth::user()->password }}" name="password" autocomplete="current-password">
+                        @error('password')
                         <small class="invalid-feedback">{{ $message }}</small>
                         @enderror
                     </div>
@@ -48,6 +49,16 @@
                 </div>
 </form>
 </div>
+@section('scripts')
+<script>
+    @if (session('success'))
+    Swal.fire({
+    icon: 'success',
+    title: "{{ session('success') }}"
+    })
+    @endif
+</script>
+@endsection
 @stop
 
 

@@ -43,32 +43,43 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
+            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('admin.additions.index') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>My Demos</span></a>
             </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-
-
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Additions</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route('admin.additions.index') }}">All Additions</a>
-                        <a class="collapse-item" href="{{ route('admin.additions.create') }}">Add New</a>
-                    </div>
-                </div>
+                <a class="nav-link" href="{{ route('admin.reviewers.index') }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Reviewer</span></a>
+            </li>
+            <hr class="sidebar-divider my-0">
+            <!-- Nav Item - Dashboard -->
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.users.index') }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Users</span></a>
+            </li>
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.account') }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>My Account</span></a>
             </li>
             <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.roles.index') }}">
+                    <i class="fas fa-fw fa-lock"></i>
+                    <span>Roles</span></a>
+            </li>
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->

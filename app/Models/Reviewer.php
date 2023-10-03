@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class File extends Model
+class Reviewer extends Model
 {
     protected $guarded = [];
     use HasFactory;
-    public function reviewer()
+    public function files()
     {
-        return $this->belongsTo(Reviewer::class)->withDefault();
+        return $this->hasMany(File::class);
     }
 
 }

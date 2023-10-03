@@ -55,7 +55,7 @@
               <li class="nav-item px-2"><a class="nav-link" href="#contact">Contact us</a></li>
             </ul>
             <div class="d-flex mt-2 align-items-center mt-lg-0">
-              </div><a href="#!"> <i class="fas fa-user text-primary"> </i></a>
+              </div><a href="{{ route('login') }}"> <i class="fas fa-user text-primary"> </i></a>
             </div>
           </div>
         </div>

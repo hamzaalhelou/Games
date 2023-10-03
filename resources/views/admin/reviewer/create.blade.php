@@ -17,7 +17,7 @@
         <div class="row align-items-center mb-3 m-8">
             <label class="col-md-2 mb-0 text-gray-600 required"><b>Demo</b></label>
             <div class="col-md-6 ms-20" >
-                <input type="file" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0 @error('file') is-invalid @enderror" name="file" accept=".dem">
+                <input type="file" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0 @error('file') is-invalid @enderror" name="file">
                 @error('file')
                 <small class="invalid-feedback">{{ $message }}</small>
                 @enderror

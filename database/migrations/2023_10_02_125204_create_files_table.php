@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->id();
-            $table->date('date');
             $table->string('file');
             $table->string('game_rank');
             $table->text('comments');
