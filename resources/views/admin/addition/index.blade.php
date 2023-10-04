@@ -29,7 +29,7 @@
                         <td>{{ $addition->comments }}</td>
                         <td class="text-end">
                             <div class="badge badge-success">
-                                </div> Yes </td>
+                                </div> {{ $addition->reviewer->type }} </td>
 
 
                     </tr>

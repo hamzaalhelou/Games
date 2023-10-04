@@ -14,7 +14,7 @@ class ReviewerController extends Controller
      */
     public function index()
     {
-        $additions = File::latest('id')->paginate(6);
+        $additions = File::with('reviewer')->latest('id')->paginate(6);
         $reviewers = Reviewer::latest('id')->paginate(6);
         return view('admin.reviewer.index',compact('reviewers','additions'));
     }

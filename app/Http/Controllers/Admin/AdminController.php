@@ -49,5 +49,15 @@ class AdminController extends Controller
 
     return redirect()->route('admin.account')->with('success','Account data has been updated successfully');
     }
+    public function apply()
+    {
+
+
+    }
+    public function payment()
+    {
+
+
+    }
 
 }

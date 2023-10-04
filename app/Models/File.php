@@ -9,7 +9,7 @@ class File extends Model
 {
     protected $guarded = [];
     use HasFactory;
-    public function reviewers()
+    public function reviewer()
     {
         return $this->belongsTo(Reviewer::class)->withDefault();
     }

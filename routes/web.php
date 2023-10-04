@@ -18,6 +18,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function(){
     Route::resource('users', UserController::class);
     Route::resource('reviewers', ReviewerController::class);
     Route::resource('roles', RoleController::class);
+    Route::get('/additions/{id}/apply', [AdminController::class, 'apply'])->name('apply')->middleware('auth');
+    Route::get('/additions/{id}/payment', [AdminController::class, 'payment'])->name('payment')->middleware('auth');
 });
 Route::get('/', [SiteController::class, 'index'])->name('site.home');
 
