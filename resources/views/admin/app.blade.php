@@ -20,6 +20,12 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('adminassets/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 @yield('styles')
 </head>
@@ -46,31 +52,30 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.additions.index') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-file-invoice"></i>
                     <span>My Demos</span></a>
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
+            <hr class="sidebar-divider my-0">
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.reviewers.index') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-star"></i>
                     <span>Reviewer</span></a>
             </li>
             <hr class="sidebar-divider my-0">
             <!-- Nav Item - Dashboard -->
-            <hr class="sidebar-divider">
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.users.index') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-user"></i>
                     <span>Users</span></a>
             </li>
             <hr class="sidebar-divider my-0">
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.show_account') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-fw fa-cog"></i>
                     <span>My Account</span></a>
             </li>
             <!-- Divider -->

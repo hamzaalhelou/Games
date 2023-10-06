@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\File;
+use App\Models\Reviewer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,6 +15,7 @@ class AdditionController extends Controller
      */
     public function index()
     {
+        // $reviewers = Reviewer::with('files')->latest('id')->paginate(6);
         $additions = File::latest('id')->paginate(6);
         return view('admin.addition.index',compact('additions'));
     }

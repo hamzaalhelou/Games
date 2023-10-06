@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\File;
 use App\Models\Reviewer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ReviewerController extends Controller
 {
@@ -33,22 +34,28 @@ class ReviewerController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'reviewed_by' => 'required',
             'your_review' => 'required',
-
+            'type' => 'required|in:Invalid demo,Yes,No',
         ]);
 
+
+        if ($validator->fails()) {
+            return response()->json([
+                        'error' => $validator->errors()->all()
+                    ]);
+        }
 
         Reviewer::create([
             'reviewed_by' => $request->reviewed_by,
             'your_review' => $request->your_review,
             'type' => $request->input('type'),
+            'file_id' =>1,
         ]);
-        return redirect()
-        ->route('admin.reviewers.index')
-        ->with('msg', 'Good job! ')
-        ->with('type', 'success');
+
+                return response()->json(['success' => 'Post created successfully.']);
+
     }
 
     /**
